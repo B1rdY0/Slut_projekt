@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/Slut_projekt/bin/Debug/net5.0/Slut_projekt.dll",
+            "program": "${workspaceFolder}/Slut_projekt/Slut_projekt/bin/Debug/net5.0/Slut_projekt.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/Slut_projekt",
+            "cwd": "${workspaceFolder}/Slut_projekt/Slut_projekt",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "externalTerminal",
             "stopAtEntry": false

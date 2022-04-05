@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/Slut_projekt/Slut_projekt.csproj",
+                "${workspaceFolder}/Slut_projekt/Slut_projekt/Slut_projekt.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/Slut_projekt/Slut_projekt.csproj",
+                "${workspaceFolder}/Slut_projekt/Slut_projekt/Slut_projekt.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -33,7 +33,7 @@
                 "watch",
                 "run",
                 "--project",
-                "${workspaceFolder}/Slut_projekt/Slut_projekt.csproj"
+                "${workspaceFolder}/Slut_projekt/Slut_projekt/Slut_projekt.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
