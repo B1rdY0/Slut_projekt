@@ -13,16 +13,17 @@ public class ToolBox
         Console.WriteLine($"The boss has {Boss1Health}");
     }
 
-    public static int Sword(int Boss1HP)
+    public static (int, int) Sword(int BossHP, int playerHp)
     {
-        int PLHP = 100;
-        int PLDMGS1 = 50;
-        int BossDMG = 15;
+        int PLDMGS1 = 250;
+        int BossDMG = 80;
 
 
         Random generator = new Random();
         Console.WriteLine("You have 50% to hit or 50% to miss");
         int chance = generator.Next(1);
+
+
 
         if (chance == 0)
         {
@@ -30,26 +31,26 @@ public class ToolBox
             Thread.Sleep(1500);
             Console.WriteLine("The Boss is attacking");
             Thread.Sleep(1500);
-            PLHP -= BossDMG;
-            Console.WriteLine($"The boss has {Boss1HP} and you have {PLHP}");
+            playerHp -= BossDMG;
+            Console.WriteLine($"The boss has {BossHP} and you have {playerHp}");
         }
 
         else
         {
             Console.WriteLine("You damaged the boss");
             Thread.Sleep(1500);
-            Boss1HP -= PLDMGS1;
-            Console.WriteLine($"You have {PLHP} and the boss has {Boss1HP}");
+            BossHP -= PLDMGS1;
+            Console.WriteLine($"You have {playerHp} and the boss has {BossHP}");
         }
 
-        return Boss1HP;
+
+        return (BossHP, playerHp);
     }
 
-    public static int Mace(int Boss1HP)
+    public static (int, int) Mace(int Boss1HP, int playerHp)
     {
         int MACEDMG = 25;
         int BossDMG = 15;
-        int PLHP = 100;
 
 
 
@@ -64,8 +65,8 @@ public class ToolBox
             Thread.Sleep(1500);
             Console.WriteLine("The boss is about to attack");
             Thread.Sleep(1500);
-            PLHP -= BossDMG;
-            Console.WriteLine($"The boss has {Boss1HP} and you have {PLHP}");
+            playerHp -= BossDMG;
+            Console.WriteLine($"The boss has {Boss1HP} and you have {playerHp}");
         }
 
 
@@ -75,20 +76,19 @@ public class ToolBox
             Console.WriteLine("You have damaged the boss");
             Thread.Sleep(1500);
             Boss1HP -= MACEDMG;
-            Console.WriteLine($"You have {PLHP} and the boss har {Boss1HP}");
+            Console.WriteLine($"You have {playerHp} and the boss har {Boss1HP}");
         }
 
-        return Boss1HP;
+        return (Boss1HP,playerHp);
 
     }
 
 
-    public static int Scythe(int Boss1HP)
+    public static (int,int) Scythe(int Boss1HP, int playerHp)
     {
 
         int ScytheDMG = 75;
         int BossDMG = 15;
-        int PLHP = 100;
 
 
         Random genarator2 = new Random();
@@ -101,8 +101,8 @@ public class ToolBox
             Thread.Sleep(1500);
             Console.WriteLine("The boss is attacking");
             Thread.Sleep(1500);
-            PLHP -= BossDMG;
-            Console.WriteLine($"You have {PLHP} and the boss has {Boss1HP}");
+            playerHp -= BossDMG;
+            Console.WriteLine($"You have {playerHp} and the boss has {Boss1HP}");
 
         }
 
@@ -111,10 +111,10 @@ public class ToolBox
             Console.WriteLine("You damaged the boss");
             Thread.Sleep(1500);
             Boss1HP -= ScytheDMG;
-            Console.WriteLine($"You have {PLHP}and the boss has {Boss1HP}");
+            Console.WriteLine($"You have {playerHp}and the boss has {Boss1HP}");
         }
 
-        return Boss1HP;
+        return (Boss1HP,playerHp);
 
 
     }

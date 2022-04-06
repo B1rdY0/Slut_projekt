@@ -2,13 +2,13 @@
 using System.Threading;
 
 
-string name = "";
-RoomNames currentRoom = RoomNames.Start;
+string name = "";                               //man skriver sitt namn
+RoomNames currentRoom = RoomNames.Start;        // skapar variabler för att göra dem olika rummen
 
 
 
-while (name.Length <= 1 || name.Length > 12)
-{
+while (name.Length <= 1 || name.Length > 12)            //kollar att namnen inte ska vara mindre eller längre
+{                                                       // än 1 och 12 bokstäver eller number
     Console.WriteLine($"Type your name here:");
     name = Console.ReadLine();
     if (name.Length <= 2)
@@ -29,7 +29,7 @@ while (name.Length <= 1 || name.Length > 12)
 
 int PLHP = 100;
 int Boss1HP = 500;
-ToolBox.printStats(PLHP, Boss1HP);
+ToolBox.printStats(PLHP, Boss1HP);          //
 string answer = "Sword";
 answer = Console.ReadLine();
 answer.ToLower();
@@ -52,51 +52,17 @@ while (currentRoom != RoomNames.End)
         Console.WriteLine("");
         Console.WriteLine("what is better: 1. touch grass  2. play Leauge of Legends");
         string action = Console.ReadLine();
-        // string LOL = Console.ReadLine();
 
 
-        if (action == "touch grass")
+        if (action == "1")
         {
             currentRoom = RoomNames.Arena;
         }
 
-        if (action == "Leauge of Legends")
+        if (action == "2")
         {
             currentRoom = RoomNames.Unworthy;
         }
-    }
-
-
-    if (currentRoom == RoomNames.Arena)
-    {
-        answer = "";
-        while (answer != "Sword" && answer != "Mace" && answer != " scythe")
-        {
-            Console.WriteLine($"Please choose a weapon {name}");
-            Console.WriteLine("");
-            Thread.Sleep(1000);
-            Console.WriteLine("please choose:   1: Sword     2: Mace      3: Scythe");
-            answer = Console.ReadLine();
-
-        }
-
-
-        if (answer == "Sword")
-        {
-            Boss1HP = ToolBox.Sword(Boss1HP);
-        }
-
-
-        if (answer == "Mace")
-        {
-            Boss1HP = ToolBox.Mace(Boss1HP);
-        }
-
-        if (answer == "Scythe")
-        {
-            Boss1HP = ToolBox.Scythe(Boss1HP);
-        }
-
 
     }
 
@@ -105,6 +71,49 @@ while (currentRoom != RoomNames.End)
         Console.WriteLine($"Bruh you are not worthy of playing the game, please QUIT GAME NOW {name}!!!!");
 
     }
+
+
+    if (currentRoom == RoomNames.Arena)
+    {
+        answer = "";
+        while (Boss1HP != 0 && PLHP != 0)
+        {
+
+            while (answer != "1" && answer != "2" && answer != "3")
+            {
+                Console.WriteLine($"Please choose a weapon {name}");
+                Console.WriteLine("");
+                Thread.Sleep(1000);
+                Console.WriteLine("please choose:   1: Sword   2: Mace   3: Scythe");
+                answer = Console.ReadLine();
+
+            }
+
+
+            if (answer == "1")
+            {
+                (Boss1HP, PLHP) = ToolBox.Sword(Boss1HP, PLHP);
+            }
+
+
+            if (answer == "2")
+            {
+                (Boss1HP, PLHP) = ToolBox.Mace(Boss1HP, PLHP);
+            }
+
+            if (answer == "3")
+            {
+                (Boss1HP, PLHP) = ToolBox.Scythe(Boss1HP, PLHP);
+            }
+
+            else
+            {
+                Console.ReadLine();
+            }
+        }
+
+    }
+
 
     Console.ReadLine();
 }
